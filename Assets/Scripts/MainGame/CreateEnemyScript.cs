@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+//using System;
 
 public class CreateEnemyScript : MonoBehaviour
 {
@@ -12,8 +12,8 @@ public class CreateEnemyScript : MonoBehaviour
     //public float Start_TimeDealay;
     public float lastSpawn;
     float timeDealay;
-    int correntLevel = 0;
 
+    float correntLevel = 0;
     float HPAdd;
     float speedAdd;
     float damageAdd;
@@ -21,6 +21,9 @@ public class CreateEnemyScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //getting the corrent level
+        correntLevel = UnpgradingSystemScript.level;
+        setLevel(correntLevel);
         spawnPointObject = this.gameObject.transform.GetChild(0).gameObject;
         //the time in seconds sines the game started
         lastSpawn = Time.time;
@@ -59,17 +62,38 @@ public class CreateEnemyScript : MonoBehaviour
     {
         print("next level - " + correntLevel.ToString());
         correntLevel++;
+        PlayerPrefs.SetFloat("level", correntLevel);
         if (correntLevel% 3==0)
         {
             damageAdd = damageAdd + 2;
         }
         else if (correntLevel %2 == 0)
         {
-            HPAdd = HPAdd + 2;
+            HPAdd = HPAdd + 10;
         }
         else
         {
-            speedAdd = speedAdd + 1;
+            speedAdd = speedAdd + 2;
+        }
+        timeDealay = 3.5f;
+    }
+
+    private void setLevel(float correntLevel)
+    {
+        for (int i = 0; i < correntLevel+1; i++)
+        {
+            if (i % 3 == 0)
+            {
+                damageAdd = damageAdd + 2;
+            }
+            else if (i % 2 == 0)
+            {
+                HPAdd = HPAdd + 10;
+            }
+            else
+            {
+                speedAdd = speedAdd + 2;
+            }
         }
         timeDealay = 3.5f;
     }

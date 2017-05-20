@@ -8,6 +8,7 @@ public class UnpgradingSystemScript : MonoBehaviour
     public static float playerPower;
     public static float playerBulletsCount;
     public static float coins;
+    public static float level;
     #endregion
 
     // Getting and sets the speed and power values
@@ -20,6 +21,7 @@ public class UnpgradingSystemScript : MonoBehaviour
         playerSpeed = GetValueByName("speed");
         playerPower = GetValueByName("power");
         playerBulletsCount = GetValueByName("bullets");
+        level = GetValueByName("level");
         coins = GetValueByName("coins") + PlayerScript.playerScore;
         PlayerScript.playerScore = 0;
         PlayerPrefs.SetFloat("coins", coins);

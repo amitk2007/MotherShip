@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
     public float bulletSpeed;
     public GameObject bullet;
     GameObject holder;
-    bool canShot = true;
+    bool canShot = false;
 
     public static float playerScore;
     public GameObject textObject;
@@ -24,7 +24,7 @@ public class PlayerScript : MonoBehaviour
         playerScore = 0;
         speed = UnpgradingSystemScript.playerSpeed;
         ScoreText = textObject;
-        inGameBullets = UnpgradingSystemScript.playerBulletsCount + 1;
+        inGameBullets = UnpgradingSystemScript.playerBulletsCount;
     }
 
     // Update is called once per frame
