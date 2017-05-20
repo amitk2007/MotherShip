@@ -14,12 +14,21 @@ public class CreateEnemyScript : MonoBehaviour
     float timeDealay;
     int correntLevel = 0;
 
+    float HPAdd;
+    float speedAdd;
+    float damageAdd;
+
     // Use this for initialization
     void Start()
     {
         spawnPointObject = this.gameObject.transform.GetChild(0).gameObject;
         //the time in seconds sines the game started
         lastSpawn = Time.time;
+
+        //zero variabels to add to enemy
+        HPAdd = 0;
+        speedAdd = 0;
+        damageAdd = 0;
     }
 
     // Update is called once per frame
@@ -32,7 +41,10 @@ public class CreateEnemyScript : MonoBehaviour
             //spawn Enemy
             GameObject holder = Instantiate(enemyObject);
             holder.transform.position = spawnPositon;
-            holder.GetComponent<EnemyScript>().speedForce = holder.GetComponent<EnemyScript>().speedForce + ((correntLevel - 1) * 5);
+            holder.GetComponent<EnemyScript>().HP = holder.GetComponent<EnemyScript>().HP + HPAdd;
+            holder.GetComponent<EnemyScript>().speedForce = holder.GetComponent<EnemyScript>().speedForce + speedAdd;
+            holder.GetComponent<EnemyScript>().damageAP = holder.GetComponent<EnemyScript>().damageAP + damageAdd;
+
             //Zero time
             lastSpawn = Time.time + timeDealay;
             timeDealay = timeDealay - timeDealay / 50f;
@@ -47,6 +59,18 @@ public class CreateEnemyScript : MonoBehaviour
     {
         print("next level - " + correntLevel.ToString());
         correntLevel++;
+        if (correntLevel% 3==0)
+        {
+            damageAdd = damageAdd + 2;
+        }
+        else if (correntLevel %2 == 0)
+        {
+            HPAdd = HPAdd + 2;
+        }
+        else
+        {
+            speedAdd = speedAdd + 1;
+        }
         timeDealay = 3.5f;
     }
 }

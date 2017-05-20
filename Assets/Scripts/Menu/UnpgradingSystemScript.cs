@@ -134,6 +134,7 @@ public class UnpgradingSystemScript : MonoBehaviour
         if (GetValueByName(buyName) <= coins)
         {
             coins = coins - GetValueByName(buyName);
+            PlayerPrefs.SetFloat("coins", coins);
             return true;
         }
         return false;

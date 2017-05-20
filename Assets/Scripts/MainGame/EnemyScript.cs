@@ -8,9 +8,11 @@ public class EnemyScript : MonoBehaviour
     public float max_HP = 100;
     public float HP;
     public float speedForce;
-    float barlength;
+    public float damageAP;
+
     GameObject HPBar;
-    public float damegAP;
+    float barlength;
+
     public GameObject bullet;
     public bool canShot = false;
     Time shotHelperTime;
@@ -52,7 +54,7 @@ public class EnemyScript : MonoBehaviour
     {
         if (other.transform.name == "MotherShip")
         {
-            other.gameObject.GetComponent<MotherShipScript>().HP = other.gameObject.GetComponent<MotherShipScript>().HP - damegAP;
+            other.gameObject.GetComponent<MotherShipScript>().HP = other.gameObject.GetComponent<MotherShipScript>().HP - damageAP;
             Destroy(this.gameObject);
         }
     }
