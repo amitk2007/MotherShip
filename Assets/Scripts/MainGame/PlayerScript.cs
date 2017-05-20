@@ -56,6 +56,10 @@ public class PlayerScript : MonoBehaviour
                 }
                 inGameBullets--;
             }
+            else if (canShot && inGameBullets == 0)
+            {
+                inGameBullets--;
+            }
         }
         if (Input.touches.Length == 0)
         {
