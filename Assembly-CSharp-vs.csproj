@@ -46,13 +46,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\BulletScript.cs" />
-     <Compile Include="Assets\Scripts\CreateEnemyScript.cs" />
-     <Compile Include="Assets\Scripts\EnemyScript.cs" />
-     <Compile Include="Assets\Scripts\GameManegerScript.cs" />
-     <Compile Include="Assets\Scripts\MotherShipScript.cs" />
-     <Compile Include="Assets\Scripts\PlayerHighScoreScript_Menu.cs" />
-     <Compile Include="Assets\Scripts\PlayerScript.cs" />
+     <Compile Include="Assets\Scripts\MabyeLater\GameManegerScript.cs" />
+     <Compile Include="Assets\Scripts\MabyeLater\PlayerHighScoreScript_Menu.cs" />
+     <Compile Include="Assets\Scripts\MainGame\BulletScript.cs" />
+     <Compile Include="Assets\Scripts\MainGame\CreateEnemyScript.cs" />
+     <Compile Include="Assets\Scripts\MainGame\EnemyScript.cs" />
+     <Compile Include="Assets\Scripts\MainGame\MotherShipScript.cs" />
+     <Compile Include="Assets\Scripts\MainGame\PlayerScript.cs" />
+     <Compile Include="Assets\Scripts\Menu\UnpgradingSystemScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

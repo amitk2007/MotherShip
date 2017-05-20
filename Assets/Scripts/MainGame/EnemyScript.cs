@@ -39,7 +39,7 @@ public class EnemyScript : MonoBehaviour
     {
         barlength = 1 - (max_HP - HP) / max_HP;
         HPBar.transform.localScale = new Vector3(barlength, HPBar.transform.localScale.y, HPBar.transform.localScale.z);
-        if (HP == 0)
+        if (HP <= 0)
         {
             PlayerScript.playerScore++;
             PlayerScript.ScoreText.GetComponent<TextMesh>().text = "Score: " + PlayerScript.playerScore.ToString();

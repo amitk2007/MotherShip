@@ -24,5 +24,9 @@ public class MotherShipScript : MonoBehaviour
     {
         barlength = 1 - (max_HP - HP) / max_HP;
         HPBar.transform.localScale = new Vector3(barlength, HPBar.transform.localScale.y, HPBar.transform.localScale.z);
+        if (HP <= 0|| PlayerScript.InGameBullets <= 0)
+        {
+            Application.LoadLevel("Menu");
+        }
     }
 }

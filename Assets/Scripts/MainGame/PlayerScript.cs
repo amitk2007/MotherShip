@@ -13,18 +13,25 @@ public class PlayerScript : MonoBehaviour
     public static float playerScore;
     public GameObject textObject;
     public static GameObject ScoreText;
-
+    public GameObject BullestsText;
+    float inGameBullets;
+    public static float InGameBullets;
     #endregion
 
     // Use this for initialization
     void Start()
     {
+        playerScore = 0;
+        speed = UnpgradingSystemScript.playerSpeed;
         ScoreText = textObject;
+        inGameBullets = UnpgradingSystemScript.playerBulletsCount + 1;
     }
 
     // Update is called once per frame
     void Update()
     {
+        BullestsText.GetComponent<TextMesh>().text = "Bullest: " + inGameBullets;
+        InGameBullets = inGameBullets;
         Vector3 dir = Vector3.zero;
         dir.x = Input.acceleration.x;
 
@@ -33,9 +40,8 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.touches.Length > 0)
         {
-            if (canShot)
+            if (canShot && inGameBullets > 0)
             {
-                Vector3 a = this.transform.position;
                 holder = Instantiate(bullet);
                 holder.transform.position = this.transform.position;
                 holder.gameObject.GetComponent<Rigidbody>().AddForce(0, bulletSpeed, 0);
@@ -48,6 +54,7 @@ public class PlayerScript : MonoBehaviour
                 {
                     holder.gameObject.GetComponent<Renderer>().material.color = Color.red;
                 }
+                inGameBullets--;
             }
         }
         if (Input.touches.Length == 0)
