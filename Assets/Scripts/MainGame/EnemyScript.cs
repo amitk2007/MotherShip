@@ -3,7 +3,6 @@ using System.Collections;
 
 public class EnemyScript : MonoBehaviour
 {
-
     #region Variables
     public float max_HP = 100;
     public float HP;
@@ -17,6 +16,7 @@ public class EnemyScript : MonoBehaviour
     public bool canShot = false;
     Time shotHelperTime;
 
+    public GameObject[] powerUps;
     #endregion
 
     // Add force to the object, setting HP, setting the HP bar object, gives random color (0=blue,1=red)
@@ -25,7 +25,7 @@ public class EnemyScript : MonoBehaviour
         this.GetComponent<Rigidbody>().AddForce(new Vector3(0, -speedForce, 0));
 
         HP = max_HP;
-        HPBar = this.transform.FindChild("HealthBar").transform.FindChild("Bar").gameObject;
+        HPBar = this.transform.Find("HealthBar").transform.Find("Bar").gameObject;
         if (Random.Range(0, 2) == 0)
         {
             this.GetComponent<Renderer>().material.color = Color.blue;
@@ -44,7 +44,7 @@ public class EnemyScript : MonoBehaviour
         if (HP <= 0)
         {
             PlayerScript.playerScore++;
-            PlayerScript.ScoreText.GetComponent<TextMesh>().text = "Score: " + PlayerScript.playerScore.ToString();
+            DropCoin();
             Destroy(this.gameObject);
         }
     }
@@ -55,6 +55,7 @@ public class EnemyScript : MonoBehaviour
         if (other.transform.name == "MotherShip")
         {
             other.gameObject.GetComponent<MotherShipScript>().HP = other.gameObject.GetComponent<MotherShipScript>().HP - damageAP;
+
             Destroy(this.gameObject);
         }
     }
@@ -71,6 +72,20 @@ public class EnemyScript : MonoBehaviour
         if (canShot)
         {
 
+        }
+    }
+
+    void DropCoin()
+    {
+        //drop power up
+        if (Random.Range(1, 5) == 3)
+        {
+            print("coin test");
+            if (Random.Range(1, 4) == 3)
+            {
+                GameObject powerup = Instantiate(powerUps[0], this.transform.position, Quaternion.identity);
+                powerup.GetComponent<Rigidbody>().AddForce(Vector3.up * -20);
+            }
         }
     }
 }

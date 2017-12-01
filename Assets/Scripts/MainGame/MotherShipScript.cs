@@ -16,7 +16,7 @@ public class MotherShipScript : MonoBehaviour
     void Start()
     {
         HP = max_HP;
-        HPBar = this.transform.FindChild("HealthBar").transform.FindChild("Bar").gameObject;
+        HPBar = this.transform.Find("HealthBar").transform.Find("Bar").gameObject;
     }
 
     // Updating the HP bar by the mother ship HP
@@ -24,9 +24,15 @@ public class MotherShipScript : MonoBehaviour
     {
         barlength = 1 - (max_HP - HP) / max_HP;
         HPBar.transform.localScale = new Vector3(barlength, HPBar.transform.localScale.y, HPBar.transform.localScale.z);
-        if (HP <= 0|| PlayerScript.InGameBullets < 0)
+        if (HP <= 0 || PlayerScript.inGameBullets <= 0)
         {
-            Application.LoadLevel("Menu");
+            if (GameObject.FindGameObjectsWithTag("Bullet").Length <= 0)
+            {
+                if (GameObject.FindGameObjectsWithTag("Coin").Length <= 0)
+                {
+                    Application.LoadLevel("Menu");
+                }
+            }
         }
     }
 }

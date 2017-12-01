@@ -8,7 +8,7 @@ public class BulletScript : MonoBehaviour
     // Nothing
     void Start()
     {
-        AP = UnpgradingSystemScript.playerPower;
+        AP = UpgradingSystemScript.playerPower;
     }
 
     // Nothing

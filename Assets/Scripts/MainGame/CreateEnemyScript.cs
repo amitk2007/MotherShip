@@ -5,8 +5,6 @@ using System.Collections.Generic;
 
 public class CreateEnemyScript : MonoBehaviour
 {
-
-    public static List<GameObject> enemyObjectList;
     GameObject spawnPointObject;
     public GameObject enemyObject;
     //public float Start_TimeDealay;
@@ -22,7 +20,7 @@ public class CreateEnemyScript : MonoBehaviour
     void Start()
     {
         //getting the corrent level
-        correntLevel = UnpgradingSystemScript.level;
+        correntLevel = UpgradingSystemScript.level;
         setLevel(correntLevel);
         spawnPointObject = this.gameObject.transform.GetChild(0).gameObject;
         //the time in seconds sines the game started
@@ -37,6 +35,7 @@ public class CreateEnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //spwne enemy objects
         if (lastSpawn <= Time.time)
         {
             float X = Random.Range(this.transform.position.x - this.transform.localScale.x / 2f + enemyObject.transform.localScale.x, this.transform.position.x + this.transform.localScale.x / 2f - enemyObject.transform.localScale.x);
@@ -63,11 +62,11 @@ public class CreateEnemyScript : MonoBehaviour
         print("next level - " + correntLevel.ToString());
         correntLevel++;
         PlayerPrefs.SetFloat("level", correntLevel);
-        if (correntLevel% 3==0)
+        if (correntLevel % 3 == 0)
         {
             damageAdd = damageAdd + 2;
         }
-        else if (correntLevel %2 == 0)
+        else if (correntLevel % 2 == 0)
         {
             HPAdd = HPAdd + 10;
         }
@@ -80,7 +79,7 @@ public class CreateEnemyScript : MonoBehaviour
 
     private void setLevel(float correntLevel)
     {
-        for (int i = 0; i < correntLevel+1; i++)
+        for (int i = 0; i < correntLevel + 1; i++)
         {
             if (i % 3 == 0)
             {

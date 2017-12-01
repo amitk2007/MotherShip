@@ -11,33 +11,46 @@ public class PlayerScript : MonoBehaviour
     bool canShot = false;
 
     public static float playerScore;
+    public static float playerCoins;
     public GameObject textObject;
     public static GameObject ScoreText;
     public GameObject BullestsText;
-    float inGameBullets;
-    public static float InGameBullets;
+    public GameObject CoinsText;
+    public static float inGameBullets;
     #endregion
 
     // Use this for initialization
     void Start()
     {
         playerScore = 0;
-        speed = UnpgradingSystemScript.playerSpeed;
+        //speed = UpgradingSystemScript.playerSpeed;
         ScoreText = textObject;
-        inGameBullets = UnpgradingSystemScript.playerBulletsCount;
+        inGameBullets = UpgradingSystemScript.playerBulletsCount;
     }
 
     // Update is called once per frame
     void Update()
     {
-        BullestsText.GetComponent<TextMesh>().text = "Bullest: " + inGameBullets;
-        InGameBullets = inGameBullets;
+        BullestsText.GetComponent<TextMesh>().text = inGameBullets.ToString();
+        ScoreText.GetComponent<TextMesh>().text = "Kills: " + playerScore.ToString();
+        CoinsText.GetComponent<TextMesh>().text = UpgradingSystemScript.coins.ToString();
+
+        PlayerMovment();
+
+        PlayerShot();
+    }
+
+    void PlayerMovment()
+    {
         Vector3 dir = Vector3.zero;
         dir.x = Input.acceleration.x;
 
         dir *= Time.deltaTime;
         transform.Translate(dir * speed);
+    }
 
+    void PlayerShot()
+    {
         if (Input.touches.Length > 0)
         {
             if (canShot && inGameBullets > 0)

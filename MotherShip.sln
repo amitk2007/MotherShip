@@ -1,7 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{DE1144A3-4C3F-5CBF-6D4C-F35D71444E9E}") = "MotherShip", "Assembly-CSharp.csproj", "{BAC895EA-6F02-E5D8-378C-21BBEA9AB60A}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotherShip", "MotherShip.csproj", "{2C191CC3-203E-91CA-0EDD-2953C5492133}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,32 +9,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BAC895EA-6F02-E5D8-378C-21BBEA9AB60A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BAC895EA-6F02-E5D8-378C-21BBEA9AB60A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BAC895EA-6F02-E5D8-378C-21BBEA9AB60A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BAC895EA-6F02-E5D8-378C-21BBEA9AB60A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C191CC3-203E-91CA-0EDD-2953C5492133}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C191CC3-203E-91CA-0EDD-2953C5492133}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C191CC3-203E-91CA-0EDD-2953C5492133}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C191CC3-203E-91CA-0EDD-2953C5492133}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
-		Policies = $0
-		$0.TextStylePolicy = $1
-		$1.inheritsSet = null
-		$1.scope = text/x-csharp
-		$0.CSharpFormattingPolicy = $2
-		$2.inheritsSet = Mono
-		$2.inheritsScope = text/x-csharp
-		$2.scope = text/x-csharp
-		$0.TextStylePolicy = $3
-		$3.FileWidth = 120
-		$3.TabWidth = 4
-		$3.IndentWidth = 4
-		$3.EolMarker = Unix
-		$3.inheritsSet = Mono
-		$3.inheritsScope = text/plain
-		$3.scope = text/plain
-	EndGlobalSection
-
 EndGlobal

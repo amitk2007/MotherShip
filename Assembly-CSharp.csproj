@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\MainGame\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\MainGame\MotherShipScript.cs" />
      <Compile Include="Assets\Scripts\MainGame\PlayerScript.cs" />
+     <Compile Include="Assets\Scripts\MainGame\PowerUpScript.cs" />
      <Compile Include="Assets\Scripts\Menu\UnpgradingSystemScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
