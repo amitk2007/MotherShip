@@ -28,9 +28,9 @@ public class UpgradingSystemScript : MonoBehaviour
 
         //set other variables
         level = GetValueByName("level");
-        coins = GetValueByName("coins");
         PlayerScript.playerScore = 0;
         PlayerPrefs.SetFloat("coins", coins);
+        coins = GetValueByName("coins");
     }
 
     // Setting text by valus to the 3D texts

@@ -3,13 +3,12 @@ using System.Collections;
 
 public class MotherShipScript : MonoBehaviour
 {
-    #region variables
+    #region Variables
     public float max_HP = 100;
     public float HP;
-
     float barlength;
-    GameObject HPBar;
 
+    GameObject HPBar;
     #endregion
 
     // Setting HP, setting the HP bar

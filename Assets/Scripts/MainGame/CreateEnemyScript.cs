@@ -5,16 +5,17 @@ using System.Collections.Generic;
 
 public class CreateEnemyScript : MonoBehaviour
 {
-    GameObject spawnPointObject;
+    #region Variables
     public GameObject enemyObject;
+    GameObject spawnPointObject;
     //public float Start_TimeDealay;
     public float lastSpawn;
-    float timeDealay;
-
     float correntLevel = 0;
-    float HPAdd;
-    float speedAdd;
+    float timeDealay;
     float damageAdd;
+    float speedAdd;
+    float HPAdd;
+    #endregion
 
     // Use this for initialization
     void Start()

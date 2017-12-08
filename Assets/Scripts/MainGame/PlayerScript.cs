@@ -4,19 +4,21 @@ using System.Collections;
 public class PlayerScript : MonoBehaviour
 {
     #region Variables
-    public float speed;
-    public float bulletSpeed;
-    public GameObject bullet;
-    GameObject holder;
-    bool canShot = false;
-
     public static float playerScore;
     public static float playerCoins;
-    public GameObject textObject;
+    public static float inGameBullets;
+    public float speed;
+    public float bulletSpeed;
+    bool canShot = false;
+
     public static GameObject ScoreText;
     public GameObject BullestsText;
+    public GameObject textObject;
     public GameObject CoinsText;
-    public static float inGameBullets;
+    public GameObject bullet;
+    GameObject holder;
+
+    public Camera cam;
     #endregion
 
     // Use this for initialization
@@ -47,6 +49,20 @@ public class PlayerScript : MonoBehaviour
 
         dir *= Time.deltaTime;
         transform.Translate(dir * speed);
+
+        PlayerStayInLine();
+    }
+
+    void PlayerStayInLine()
+    {
+        if (cam.WorldToScreenPoint(this.gameObject.transform.position).x > Screen.width)
+        {
+            this.gameObject.transform.position = cam.ScreenToWorldPoint(new Vector3(Screen.width, cam.WorldToScreenPoint(this.gameObject.transform.position).y, cam.WorldToScreenPoint(this.gameObject.transform.position).z));
+        }
+        if (cam.WorldToScreenPoint(this.gameObject.transform.position).x < 0)
+        {
+            this.gameObject.transform.position = cam.ScreenToWorldPoint(new Vector3(0, cam.WorldToScreenPoint(this.gameObject.transform.position).y, cam.WorldToScreenPoint(this.gameObject.transform.position).z));
+        }
     }
 
     void PlayerShot()

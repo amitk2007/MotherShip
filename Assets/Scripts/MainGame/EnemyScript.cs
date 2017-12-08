@@ -5,18 +5,18 @@ public class EnemyScript : MonoBehaviour
 {
     #region Variables
     public float max_HP = 100;
-    public float HP;
     public float speedForce;
     public float damageAP;
-
-    GameObject HPBar;
+    public float HP;
     float barlength;
 
-    public GameObject bullet;
     public bool canShot = false;
-    Time shotHelperTime;
 
     public GameObject[] powerUps;
+    public GameObject bullet;
+    GameObject HPBar;
+
+    Time shotHelperTime;
     #endregion
 
     // Add force to the object, setting HP, setting the HP bar object, gives random color (0=blue,1=red)

@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
+    #region Variables
     float coins = 1;
     float bullets = 5;
     public bool isBullets = false;
+    #endregion
+
     // Use this for initialization
     void Start()
     {
@@ -30,7 +33,7 @@ public class CoinScript : MonoBehaviour
         {
             if (isBullets == false)
             {
-               UpgradingSystemScript.coins = UpgradingSystemScript.coins + coins;
+                UpgradingSystemScript.coins = UpgradingSystemScript.coins + coins;
             }
             else
             {
